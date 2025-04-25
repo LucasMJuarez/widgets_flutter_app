@@ -25,25 +25,29 @@ class _ButtonsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
-      child: Wrap(
-        spacing: 10.0,
-        children: [
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('Elevated button'),
-          ),
-          const ElevatedButton(
-            onPressed: null,
-            child: Text('Elevated disabled'),
-          ),
-          ElevatedButton.icon(
-            onPressed: () {},
-            icon: const Icon(Icons.access_alarm_outlined),
-            label: const Text('Elevated with icon'),
-          ),
-        ],
+    return SizedBox(
+      width: double.infinity,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
+        child: Wrap(
+          spacing: 10.0,
+          alignment: WrapAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Elevated button'),
+            ),
+            const ElevatedButton(
+              onPressed: null,
+              child: Text('Elevated disabled'),
+            ),
+            ElevatedButton.icon(
+              onPressed: () {},
+              icon: const Icon(Icons.access_alarm_outlined),
+              label: const Text('Elevated with icon'),
+            ),
+          ],
+        ),
       ),
     );
   }
