@@ -39,11 +39,13 @@ class _CustomListTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+
     return ListTile(
-      leading: Icon(menuItem.icon),
+      leading: Icon(menuItem.icon, color: colors.primary),
       title: Text(menuItem.title),
       subtitle: Text(menuItem.subTitle),
-      trailing: const Icon(Icons.chevron_right_outlined),
+      trailing: Icon(Icons.chevron_right_outlined, color: colors.primary),
     );
   }
 }
