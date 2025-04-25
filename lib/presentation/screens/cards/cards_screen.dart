@@ -36,12 +36,6 @@ class _CardsView extends StatelessWidget {
               label: card['label'] as String,
             ),
           ),
-          ...cards.map(
-            (card) => _CardType1(
-              elevation: card['elevation'] as double,
-              label: card['label'] as String,
-            ),
-          ),
         ],
       ),
     );
