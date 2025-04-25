@@ -25,6 +25,7 @@ class _ButtonsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return SizedBox(
       width: double.infinity,
       child: Padding(
@@ -45,6 +46,44 @@ class _ButtonsView extends StatelessWidget {
               onPressed: () {},
               icon: const Icon(Icons.access_alarm_outlined),
               label: const Text('Elevated with icon'),
+            ),
+
+            FilledButton(onPressed: () {}, child: const Text('Filled button')),
+            FilledButton.icon(
+              onPressed: () {},
+              icon: const Icon(Icons.accessible_forward),
+              label: const Text('Filled with icon'),
+            ),
+
+            OutlinedButton(
+              onPressed: () {},
+              child: const Text('Outlined button'),
+            ),
+            OutlinedButton.icon(
+              onPressed: () {},
+              icon: const Icon(Icons.access_alarm_outlined),
+              label: const Text('Outlined with icon'),
+            ),
+
+            TextButton(onPressed: () {}, child: const Text('Text button')),
+            TextButton.icon(
+              onPressed: () {},
+              icon: const Icon(Icons.access_alarm_outlined),
+              label: const Text('Text with icon'),
+            ),
+
+            //Todo: CUSTOM BUTTONS
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.access_alarm_outlined),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.access_alarm_outlined),
+              style: ButtonStyle(
+                backgroundColor: WidgetStateProperty.all(colors.primary),
+                iconColor: WidgetStateProperty.all(colors.onPrimary),
+              ),
             ),
           ],
         ),
