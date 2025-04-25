@@ -72,7 +72,7 @@ class _ButtonsView extends StatelessWidget {
               label: const Text('Text with icon'),
             ),
 
-            //Todo: CUSTOM BUTTONS
+            CustomButton(),
             IconButton(
               onPressed: () {},
               icon: const Icon(Icons.access_alarm_outlined),
@@ -86,6 +86,34 @@ class _ButtonsView extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class CustomButton extends StatelessWidget {
+  const CustomButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20.0),
+      child: Material(
+        color: colors.primary,
+        child: InkWell(
+          onTap: () {},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20.0,
+              vertical: 10.0,
+            ),
+            child: Text(
+              'Hola Pichon',
+              style: TextStyle(color: colors.onPrimary),
+            ),
+          ),
         ),
       ),
     );
