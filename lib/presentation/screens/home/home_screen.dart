@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:widgets_app/config/menu/menu_items.dart';
-import 'package:widgets_app/presentation/screens/buttons/buttons_screen.dart';
-import 'package:widgets_app/presentation/screens/cards/cards_screen.dart';
 
 class HomeScreen extends StatelessWidget {
+  static const String name = 'home_screen';
   const HomeScreen({super.key});
 
   @override
@@ -49,20 +49,7 @@ class _CustomListTitle extends StatelessWidget {
       subtitle: Text(menuItem.subTitle),
       trailing: Icon(Icons.chevron_right_outlined, color: colors.primary),
       onTap: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) {
-              switch (menuItem.link) {
-                case '/buttons':
-                  return const ButtonsScreen();
-                case '/card':
-                  return const CardsScreen();
-                default:
-                  return const Placeholder(); // Fallback screen
-              }
-            },
-          ),
-        );
+        context.push(menuItem.link);
       },
     );
   }
