@@ -27,6 +27,38 @@ class _CardsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Column(
+      children: [
+       ...cards.map((card)=> _CardType1(
+            elevation: card['elevation'] as double,
+            label: card['label'] as String,
+          )),    
+      ],
+    )
+  }
+}
+
+class _CardType1 extends StatelessWidget {
+
+  final double elevation;
+  final String label;
+
+  const _CardType1({
+    required this.elevation,
+    required this.label,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: Colors.white,
+      elevation: elevation,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(10, 5, 10, 10),
+        child: Column(children: [
+          Icon(Icons.more_vert_outlined)
+        ],),
+      ),
+    );
   }
 }
