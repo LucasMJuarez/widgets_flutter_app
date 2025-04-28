@@ -42,6 +42,17 @@ class _ControllerProgressIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CircularProgressIndicator(value: 2, backgroundColor: Colors.black12),
+
+          SizedBox(width: 20),
+          Expanded(child: LinearProgressIndicator()),
+        ],
+      ),
+    );
   }
 }
