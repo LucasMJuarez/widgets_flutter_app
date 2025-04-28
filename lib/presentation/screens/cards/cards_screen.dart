@@ -42,6 +42,14 @@ class _CardsView extends StatelessWidget {
               label: card['label'] as String,
             ),
           ),
+
+          ...cards.map(
+            (card) => _CardType4(
+              elevation: card['elevation'] as double,
+              label: card['label'] as String,
+            ),
+          ),
+          SizedBox(height: 50),
         ],
       ),
     );
@@ -110,6 +118,52 @@ class _CardType2 extends StatelessWidget {
             Align(alignment: Alignment.bottomLeft, child: Text(label)),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class _CardType4 extends StatelessWidget {
+  final double elevation;
+  final String label;
+
+  const _CardType4({required this.elevation, required this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+    return Card(
+      clipBehavior: Clip.hardEdge,
+      shape: RoundedRectangleBorder(
+        side: BorderSide(color: colors.outline),
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+      ),
+      color: Colors.white,
+      elevation: elevation,
+      child: Stack(
+        children: [
+          Image.network(
+            'https://picsum.photos/id/${elevation.toInt()}/600/250',
+            fit: BoxFit.cover,
+            height: 350,
+          ),
+
+          Align(
+            alignment: Alignment.topRight,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(10),
+                ),
+              ),
+              child: IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.more_vert_outlined),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
