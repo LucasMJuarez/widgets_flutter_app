@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math' show Random;
 
 class AnimateScreen extends StatefulWidget {
   static const String name = 'animate_screen';
@@ -10,6 +11,14 @@ class AnimateScreen extends StatefulWidget {
 }
 
 class _AnimateScreenState extends State<AnimateScreen> {
+  double width = 59;
+  double height = 50;
+
+  Color color = Colors.indigo;
+
+  double borderRadius = 10;
+
+  void changeShape() {}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,11 +26,11 @@ class _AnimateScreenState extends State<AnimateScreen> {
       body: Center(
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 400),
-          width: 200,
-          height: 400,
+          width: width,
+          height: height,
           decoration: BoxDecoration(
-            color: Colors.blue,
-            borderRadius: BorderRadius.circular(20),
+            color: color,
+            borderRadius: BorderRadius.circular(borderRadius),
           ),
           child: const Center(
             child: Text(
