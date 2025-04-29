@@ -18,7 +18,20 @@ class _AnimateScreenState extends State<AnimateScreen> {
 
   double borderRadius = 10;
 
-  void changeShape() {}
+  void changeShape() {
+    final random = Random();
+    width = random.nextInt(300).toDouble() + 70;
+    height = random.nextInt(300).toDouble() + 70;
+    color = Color.fromRGBO(
+      random.nextInt(255),
+      random.nextInt(255),
+      random.nextInt(255),
+      1,
+    );
+    borderRadius = random.nextInt(100).toDouble() + 10;
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,6 +39,7 @@ class _AnimateScreenState extends State<AnimateScreen> {
       body: Center(
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 400),
+          curve: Curves.bounceOut,
           width: width,
           height: height,
           decoration: BoxDecoration(
@@ -41,9 +55,7 @@ class _AnimateScreenState extends State<AnimateScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Add your action here
-        },
+        onPressed: changeShape,
         child: const Icon(Icons.play_arrow_rounded),
       ),
     );
