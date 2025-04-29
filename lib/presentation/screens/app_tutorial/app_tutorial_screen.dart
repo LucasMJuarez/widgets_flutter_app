@@ -12,17 +12,17 @@ final slides = <SlideInfo>[
   SlideInfo(
     'Busca la comida',
     'lorem  ipsum dolor sit amet, consectetur adipiscing elit.',
-    'assets/images/1.jpg',
+    'assets/images/1.png',
   ),
   SlideInfo(
     'Entrega la comida',
     'lorem  ipsum dolor sit amet, consectetur adipiscing elit.',
-    'assets/images/2.jpg',
+    'assets/images/2.png',
   ),
   SlideInfo(
     'Disfruta la comida',
     'lorem  ipsum dolor sit amet, consectetur adipiscing elit.',
-    'assets/images/3.jpg',
+    'assets/images/3.png',
   ),
 ];
 
@@ -64,6 +64,11 @@ class _Slide extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Placeholder();
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30),
+      child: Center(
+        child: Column(children: [Image(image: AssetImage(imageUrl))]),
+      ),
+    );
   }
 }
