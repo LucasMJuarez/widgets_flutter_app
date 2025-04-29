@@ -22,6 +22,7 @@ class SnackBarScreen extends StatelessWidget {
   void openDialog(BuildContext context) {
     showDialog(
       context: context,
+      barrierDismissible: false,
       builder: (context) {
         return AlertDialog(
           title: const Text('Estas seguro'),
