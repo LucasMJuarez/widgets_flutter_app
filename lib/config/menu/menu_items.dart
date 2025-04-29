@@ -48,4 +48,10 @@ const appMenuItems = <MenuItems>[
     link: '/animated',
     icon: Icons.check_box_outline_blank,
   ),
+  MenuItems(
+    title: 'Ui controls and buttons',
+    subTitle: 'Serie de controles para la UI',
+    link: '/ui-controls',
+    icon: Icons.card_giftcard_outlined,
+  ),
 ];
