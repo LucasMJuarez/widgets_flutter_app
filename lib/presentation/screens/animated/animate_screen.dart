@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 
-class AnimateScreen extends StatelessWidget {
+class AnimateScreen extends StatefulWidget {
   static const String name = 'animate_screen';
 
   const AnimateScreen({super.key});
 
+  @override
+  State<AnimateScreen> createState() => _AnimateScreenState();
+}
+
+class _AnimateScreenState extends State<AnimateScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
