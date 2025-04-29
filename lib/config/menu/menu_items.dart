@@ -54,4 +54,11 @@ const appMenuItems = <MenuItems>[
     link: '/ui-controls',
     icon: Icons.card_giftcard_outlined,
   ),
+
+  MenuItems(
+    title: 'Introduccion a la aplicacion',
+    subTitle: 'Pequeño tutorial de la aplicacion',
+    link: '/tutorial',
+    icon: Icons.accessible_rounded,
+  ),
 ];
