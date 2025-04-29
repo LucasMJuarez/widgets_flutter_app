@@ -64,6 +64,10 @@ class _Slide extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final titleStyle = Theme.of(context).textTheme.titleLarge;
+    final captionStyle = Theme.of(
+      context,
+    ).textTheme.bodySmall?.copyWith(color: Colors.black54);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Center(
@@ -73,9 +77,9 @@ class _Slide extends StatelessWidget {
           children: [
             Image(image: AssetImage(imageUrl)),
             const SizedBox(height: 10),
-            Text(title),
+            Text(title, style: titleStyle),
             const SizedBox(height: 10),
-            Text(caption),
+            Text(caption, style: captionStyle),
           ],
         ),
       ),
