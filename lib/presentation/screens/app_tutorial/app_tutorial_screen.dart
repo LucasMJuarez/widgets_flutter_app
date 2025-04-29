@@ -67,7 +67,17 @@ class _Slide extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Center(
-        child: Column(children: [Image(image: AssetImage(imageUrl))]),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image(image: AssetImage(imageUrl)),
+            const SizedBox(height: 10),
+            Text(title),
+            const SizedBox(height: 10),
+            Text(caption),
+          ],
+        ),
       ),
     );
   }
