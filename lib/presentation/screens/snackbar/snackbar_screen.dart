@@ -29,7 +29,17 @@ class SnackBarScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             FilledButton(
-              onPressed: () {},
+              onPressed: () {
+                showAboutDialog(
+                  context: context,
+                  children: const [
+                    Text(
+                      'lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ],
+                );
+              },
               child: const Text('Licencia usadas'),
             ),
             FilledButton(
