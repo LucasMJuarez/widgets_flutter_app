@@ -19,6 +19,32 @@ class SnackBarScreen extends StatelessWidget {
     );
   }
 
+  void openDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Estas seguro'),
+          content: const Text('This is a dialog message.'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Close the dialog
+              },
+              child: const Text('Cancelar'),
+            ),
+            FilledButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Close the dialog
+              },
+              child: const Text('Aceptar'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +69,7 @@ class SnackBarScreen extends StatelessWidget {
               child: const Text('Licencia usadas'),
             ),
             FilledButton(
-              onPressed: () {},
+              onPressed: () => openDialog(context),
               child: const Text('Mostrar dialogo'),
             ),
           ],
