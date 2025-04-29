@@ -23,6 +23,22 @@ class SnackBarScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('SnackBar and Dialog')),
+
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            FilledButton(
+              onPressed: () {},
+              child: const Text('Licencia usadas'),
+            ),
+            FilledButton(
+              onPressed: () {},
+              child: const Text('Mostrar dialogo'),
+            ),
+          ],
+        ),
+      ),
       floatingActionButton: FloatingActionButton.extended(
         label: const Text('Show SnackBar'),
         onPressed: () {
