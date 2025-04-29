@@ -1,5 +1,31 @@
 import 'package:flutter/material.dart';
 
+class SlideInfo {
+  final String title;
+  final String caption;
+  final String imageUrl;
+
+  SlideInfo(this.title, this.caption, this.imageUrl);
+}
+
+final slides = <SlideInfo>[
+  SlideInfo(
+    'Busca la comida',
+    'lorem  ipsum dolor sit amet, consectetur adipiscing elit.',
+    'assets/images/1.jpg',
+  ),
+  SlideInfo(
+    'Entrega la comida',
+    'lorem  ipsum dolor sit amet, consectetur adipiscing elit.',
+    'assets/images/2.jpg',
+  ),
+  SlideInfo(
+    'Disfruta la comida',
+    'lorem  ipsum dolor sit amet, consectetur adipiscing elit.',
+    'assets/images/3.jpg',
+  ),
+];
+
 class AppTutorialScreen extends StatelessWidget {
   static const String name = 'tutorial_screen';
 
@@ -7,6 +33,11 @@ class AppTutorialScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: PageView(physics: const BouncingScrollPhysics(), children: [
+          
+        ],
+      ),
+    );
   }
 }
