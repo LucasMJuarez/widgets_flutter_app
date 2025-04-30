@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -45,7 +46,7 @@ class _AppTutorialScreenState extends State<AppTutorialScreen> {
 
     pageViewController.addListener(() {
       final page = pageViewController.page ?? 0;
-      if (!endReached && page >= (slides.length - 1.5)) {
+      if (endReached == false && page >= slides.length - 1) {
         setState(() {
           endReached = true;
         });
@@ -55,7 +56,7 @@ class _AppTutorialScreenState extends State<AppTutorialScreen> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
+    pageViewController.dispose();
     super.dispose();
   }
 
@@ -92,9 +93,13 @@ class _AppTutorialScreenState extends State<AppTutorialScreen> {
               ? Positioned(
                 bottom: 50,
                 right: 30,
-                child: FilledButton(
-                  onPressed: () => context.pop(),
-                  child: const Text('Comenzar'),
+                child: FadeInRight(
+                  from: 15,
+                  delay: const Duration(seconds: 1),
+                  child: FilledButton(
+                    onPressed: () => context.pop(),
+                    child: const Text('Comenzar'),
+                  ),
                 ),
               )
               : const SizedBox(),
