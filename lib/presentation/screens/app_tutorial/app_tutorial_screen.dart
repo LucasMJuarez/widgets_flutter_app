@@ -13,23 +13,23 @@ class SlideInfo {
 final slides = <SlideInfo>[
   SlideInfo(
     'Busca la comida',
-    'lorem  ipsum dolor sit amet, consectetur adipiscing elit.',
+    'Exercitation voluptate cillum eu aute dolor irure aliquip.',
     'assets/images/1.png',
   ),
   SlideInfo(
-    'Entrega la comida',
-    'lorem  ipsum dolor sit amet, consectetur adipiscing elit.',
+    'Entrega rápida',
+    'Ullamco ullamco duis labore quis occaecat culpa laborum id incididunt.',
     'assets/images/2.png',
   ),
   SlideInfo(
     'Disfruta la comida',
-    'lorem  ipsum dolor sit amet, consectetur adipiscing elit.',
+    'Ea officia exercitation voluptate nostrud amet esse ut exercitation deserunt est enim est.',
     'assets/images/3.png',
   ),
 ];
 
 class AppTutorialScreen extends StatefulWidget {
-  static const String name = 'tutorial_screen';
+  static const name = 'tutorial_screen';
 
   const AppTutorialScreen({super.key});
 
@@ -38,15 +38,16 @@ class AppTutorialScreen extends StatefulWidget {
 }
 
 class _AppTutorialScreenState extends State<AppTutorialScreen> {
-  final PageController pageViewController = PageController();
+  final PageController pageviewController = PageController();
   bool endReached = false;
+
   @override
   void initState() {
     super.initState();
 
-    pageViewController.addListener(() {
-      final page = pageViewController.page ?? 0;
-      if (endReached == false && page >= slides.length - 1) {
+    pageviewController.addListener(() {
+      final page = pageviewController.page ?? 0;
+      if (!endReached && page >= (slides.length - 1.5)) {
         setState(() {
           endReached = true;
         });
@@ -56,7 +57,8 @@ class _AppTutorialScreenState extends State<AppTutorialScreen> {
 
   @override
   void dispose() {
-    pageViewController.dispose();
+    pageviewController.dispose();
+
     super.dispose();
   }
 
@@ -67,6 +69,7 @@ class _AppTutorialScreenState extends State<AppTutorialScreen> {
       body: Stack(
         children: [
           PageView(
+            controller: pageviewController,
             physics: const BouncingScrollPhysics(),
             children:
                 slides
@@ -82,10 +85,10 @@ class _AppTutorialScreenState extends State<AppTutorialScreen> {
 
           Positioned(
             right: 20,
-            top: 20,
+            top: 50,
             child: TextButton(
+              child: const Text('Salir'),
               onPressed: () => context.pop(),
-              child: Text('Salir'),
             ),
           ),
 
@@ -124,6 +127,7 @@ class _Slide extends StatelessWidget {
   Widget build(BuildContext context) {
     final titleStyle = Theme.of(context).textTheme.titleLarge;
     final captionStyle = Theme.of(context).textTheme.bodySmall;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Center(
@@ -132,7 +136,7 @@ class _Slide extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image(image: AssetImage(imageUrl)),
-            const SizedBox(height: 10),
+            const SizedBox(height: 20),
             Text(title, style: titleStyle),
             const SizedBox(height: 10),
             Text(caption, style: captionStyle),
