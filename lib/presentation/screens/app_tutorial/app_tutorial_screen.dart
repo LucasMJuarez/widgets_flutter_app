@@ -37,7 +37,15 @@ class AppTutorialScreen extends StatefulWidget {
 }
 
 class _AppTutorialScreenState extends State<AppTutorialScreen> {
-  late final PageController pageViewController;
+  final PageController pageViewController = PageController();
+  @override
+  void initState() {
+    super.initState();
+
+    pageViewController.addListener(() {
+      print('Page: ${pageViewController.page}');
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +73,15 @@ class _AppTutorialScreenState extends State<AppTutorialScreen> {
             child: TextButton(
               onPressed: () => context.pop(),
               child: Text('Salir'),
+            ),
+          ),
+
+          Positioned(
+            bottom: 50,
+            right: 30,
+            child: FilledButton(
+              onPressed: () => context.pop(),
+              child: const Text('Comenzar'),
             ),
           ),
         ],
