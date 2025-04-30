@@ -13,6 +13,11 @@ class InfiniteScroolScreen extends StatefulWidget {
 class _InfiniteScroolScreenState extends State<InfiniteScroolScreen> {
   List<int> imagesIds = [1, 2, 3, 4, 5];
 
+  void addFiveImages() {
+    final lastId = imagesIds.last;
+    imagesIds.addAll([1, 2, 3, 4, 5].map((e) => lastId + e));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
