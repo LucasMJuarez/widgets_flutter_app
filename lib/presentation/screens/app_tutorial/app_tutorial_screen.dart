@@ -38,13 +38,25 @@ class AppTutorialScreen extends StatefulWidget {
 
 class _AppTutorialScreenState extends State<AppTutorialScreen> {
   final PageController pageViewController = PageController();
+  bool endReached = false;
   @override
   void initState() {
     super.initState();
 
     pageViewController.addListener(() {
-      print('Page: ${pageViewController.page}');
+      final page = pageViewController.page ?? 0;
+      if (!endReached && page >= (slides.length - 1.5)) {
+        setState(() {
+          endReached = true;
+        });
+      }
     });
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
   }
 
   @override
@@ -76,14 +88,16 @@ class _AppTutorialScreenState extends State<AppTutorialScreen> {
             ),
           ),
 
-          Positioned(
-            bottom: 50,
-            right: 30,
-            child: FilledButton(
-              onPressed: () => context.pop(),
-              child: const Text('Comenzar'),
-            ),
-          ),
+          endReached
+              ? Positioned(
+                bottom: 50,
+                right: 30,
+                child: FilledButton(
+                  onPressed: () => context.pop(),
+                  child: const Text('Comenzar'),
+                ),
+              )
+              : const SizedBox(),
         ],
       ),
     );
