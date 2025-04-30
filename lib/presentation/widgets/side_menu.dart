@@ -12,6 +12,12 @@ class _SideMenuState extends State<SideMenu> {
   @override
   Widget build(BuildContext context) {
     return NavigationDrawer(
+      selectedIndex: navDrawerIndex,
+      onDestinationSelected: (value) {
+        setState(() {
+          navDrawerIndex = value;
+        });
+      },
       children: [
         NavigationDrawerDestination(icon: Icon(Icons.add), label: Text('Add')),
         NavigationDrawerDestination(
