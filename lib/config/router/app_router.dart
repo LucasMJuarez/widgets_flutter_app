@@ -15,6 +15,11 @@ final appRouter = GoRouter(
       builder: (context, state) => const ButtonsScreen(),
     ),
     GoRoute(
+      path: '/ui-controls',
+      name: UiControlsScreen.name,
+      builder: (context, state) => const UiControlsScreen(),
+    ),
+    GoRoute(
       path: '/cards',
       name: CardsScreen.name,
       builder: (context, state) => const CardsScreen(),

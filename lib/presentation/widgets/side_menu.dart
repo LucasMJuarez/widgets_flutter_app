@@ -24,6 +24,14 @@ class _SideMenuState extends State<SideMenu> {
           icon: Icon(Icons.remove),
           label: Text('Remove'),
         ),
+        NavigationDrawerDestination(
+          icon: Icon(Icons.card_giftcard),
+          label: Text('Cards'),
+        ),
+        NavigationDrawerDestination(
+          icon: Icon(Icons.list_alt_outlined),
+          label: Text('List'),
+        ),
       ],
     );
   }
