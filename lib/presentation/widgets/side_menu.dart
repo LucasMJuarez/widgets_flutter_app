@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widgets_app/config/menu/menu_items.dart';
 
 class SideMenu extends StatefulWidget {
   const SideMenu({super.key});
@@ -25,19 +26,31 @@ class _SideMenuState extends State<SideMenu> {
           padding: EdgeInsets.fromLTRB(16, hasNotch ? 10 : 16, 0, 16),
           child: Text('MENU'),
         ),
-        NavigationDrawerDestination(icon: Icon(Icons.add), label: Text('Add')),
-        NavigationDrawerDestination(
-          icon: Icon(Icons.remove),
-          label: Text('Remove'),
+
+        ...appMenuItems
+            .sublist(0, 3)
+            .map(
+              (e) => NavigationDrawerDestination(
+                icon: Icon(e.icon),
+                label: Text(e.title),
+                selectedIcon: Icon(e.icon, color: Colors.blue),
+              ),
+            ),
+
+        const Padding(
+          padding: EdgeInsets.fromLTRB(28, 16, 28, 10),
+          child: Divider(),
         ),
-        NavigationDrawerDestination(
-          icon: Icon(Icons.card_giftcard),
-          label: Text('Cards'),
-        ),
-        NavigationDrawerDestination(
-          icon: Icon(Icons.list_alt_outlined),
-          label: Text('List'),
-        ),
+
+        ...appMenuItems
+            .sublist(3)
+            .map(
+              (e) => NavigationDrawerDestination(
+                icon: Icon(e.icon),
+                label: Text(e.title),
+                selectedIcon: Icon(e.icon, color: Colors.blue),
+              ),
+            ),
       ],
     );
   }
