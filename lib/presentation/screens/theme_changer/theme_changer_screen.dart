@@ -15,7 +15,9 @@ class ThemeChangerScreen extends ConsumerWidget {
         actions: [
           IconButton(
             icon: Icon(isDarkMode ? Icons.dark_mode : Icons.light_mode),
-            onPressed: () {},
+            onPressed: () {
+              ref.read(isDarkModeProvider.notifier).state = !isDarkMode;
+            },
           ),
         ],
       ),
@@ -33,6 +35,7 @@ class _ThemeChangerView extends ConsumerWidget {
       colorListProvider,
     ); //se vuelve a llamar al provider y se vuelve a construir el widget
     //por mas que no se cambie nunca el colorListProvider, se vuelve a llamar al provider y se vuelve a construir el widget
+    final int selectedColor = ref.watch(selectedColorProvider);
 
     return ListView.builder(
       itemCount: colors.length,
@@ -43,10 +46,9 @@ class _ThemeChangerView extends ConsumerWidget {
           subtitle: Text('${color.r}'),
           activeColor: color,
           value: index,
-          groupValue: 0, //es el color que se esta seleccionando
+          groupValue: selectedColor, //es el color que se esta seleccionando
           onChanged: (value) {
-            //todo notificar al provider que se ha cambiado el color
-            // ref.read(colorListProvider.notifier).state = [value!];
+            ref.read(selectedColorProvider.notifier).state = index;
           },
         );
       },
