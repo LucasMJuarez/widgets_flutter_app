@@ -19,6 +19,37 @@ class ThemeChangerScreen extends ConsumerWidget {
           ),
         ],
       ),
+      body: _ThemeChangerView(),
+    );
+  }
+}
+
+class _ThemeChangerView extends ConsumerWidget {
+  const _ThemeChangerView();
+
+  @override
+  Widget build(BuildContext context, ref) {
+    final List<Color> colors = ref.watch(
+      colorListProvider,
+    ); //se vuelve a llamar al provider y se vuelve a construir el widget
+    //por mas que no se cambie nunca el colorListProvider, se vuelve a llamar al provider y se vuelve a construir el widget
+
+    return ListView.builder(
+      itemCount: colors.length,
+      itemBuilder: (context, index) {
+        final Color color = colors[index];
+        return RadioListTile(
+          title: Text('Este color', style: TextStyle(color: color)),
+          subtitle: Text('${color.r}'),
+          activeColor: color,
+          value: index,
+          groupValue: 0, //es el color que se esta seleccionando
+          onChanged: (value) {
+            //todo notificar al provider que se ha cambiado el color
+            // ref.read(colorListProvider.notifier).state = [value!];
+          },
+        );
+      },
     );
   }
 }
