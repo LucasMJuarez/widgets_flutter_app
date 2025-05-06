@@ -21,14 +21,14 @@ class CounterScreen extends ConsumerWidget {
               style: Theme.of(context).textTheme.titleLarge,
             ),
             const SizedBox(height: 10),
-            Text('0', style: Theme.of(context).textTheme.titleLarge),
-            const SizedBox(height: 10),
           ],
         ),
       ),
 
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          ref.read(counterProvider.notifier).state++;
+        },
         child: const Icon(Icons.add),
       ),
     );
