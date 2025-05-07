@@ -21,3 +21,7 @@ class ThemeNotifier extends StateNotifier<AppTheme> {
   // Constructor initializing the state with a default AppTheme instance
   ThemeNotifier() : super(AppTheme());
 }
+
+
+//ver mas en docs del repo y de riverpod
+// https://riverpod.dev/docs/concepts/state_notifier
